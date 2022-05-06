@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="card">
+    <!--SOURCE PART-->
+    <mat-card class="language-card original">
+      <div class="header">
+        <mat-card-title class="header-title">Original</mat-card-title>
+
+        <mat-form-field appearance="fill" class="lang-menu">
+          <mat-label>Choose an option</mat-label>
+          <mat-select
+            [(value)]="sourceLang"
+            (selectionChange)="changeSourceLang($event.value)"
+          >
+            <mat-option *ngFor="let l of sourceLangs" [value]="l">{{
+              l
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="text-area">
+        <mat-label aria-placeholder="Write something..."></mat-label>
+        <textarea
+          matInput
+          class="disable-resize"
+          placeholder="Write something..."
+          [(ngModel)]="source"
+          >{{ source }}</textarea
+        >
+      </mat-form-field>
+
+      <mat-card-actions class="buttons" align="end">
+        <button
+          mat-button
+          class="toggle-button-navbar mat-icon-button"
+          (click)="copyText(source)"
+        >
+          ​<mat-icon>file_copy</mat-icon> ​
+        </button>
+
+        <button
+          mat-button
+          class="toggle-button-navbar mat-icon-button"
+          (click)="translate()"
+        >
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!--TARGET PART-->
+    <mat-card class="language-card target">
+      <div class="header">
+        <mat-card-title class="header-title">Target</mat-card-title>
+
+        <mat-form-field appearance="fill" class="lang-menu">
+          <mat-label>Choose an option</mat-label>
+          <mat-select
+            [(value)]="targetLang"
+            (selectionChange)="changeTargetLang($event.value)"
+          >
+            <mat-option *ngFor="let l of targetLangs" [value]="l">{{
+              l
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="translated-text">
+        <p aria-placeholder="Translation" *ngIf="translation != ''" style="color: black;">
+          {{ translation }}
+        </p>
+        <p aria-placeholder="Translation" *ngIf="translation === ''" style="color: gray;">
+          Translation...
+        </p>
+      </div>
+
+      <mat-card-actions>
+        <button
+          mat-button
+          class="toggle-button-navbar mat-icon-button"
+          (click)="copyText(translation)"
+        >
+          ​<mat-icon>file_copy</mat-icon> ​
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <!--SYNONYMS PART-->
+  <app-synonym-card
+    class="synonyms"
+    *ngIf="reset == false"
+    [trans]="lookup"
+    [reset]="reset"
+  >
+  </app-synonym-card>
+</div>

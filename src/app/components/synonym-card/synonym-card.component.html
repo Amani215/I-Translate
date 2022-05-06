@@ -1,0 +1,44 @@
+<mat-card class="card" *ngIf="reset == false">
+  <!--Other translations panel-->
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Other translations
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul>
+        <li *ngFor="let t of otherTrans">{{ t }}</li>
+      </ul>
+    </mat-expansion-panel>
+
+    <!--Synonyms Panel-->
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Synonyms
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul>
+        <li *ngFor="let s of syn">{{ s }}</li>
+      </ul>
+    </mat-expansion-panel>
+
+    <!--Examples Panel-->
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Examples
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul>
+        <li *ngFor="let e of examples; let i=index">{{ e }} = {{examplesMeaning[i]}}</li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  
+</mat-card>
