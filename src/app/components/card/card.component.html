@@ -7,10 +7,7 @@
 
         <mat-form-field appearance="fill" class="lang-menu">
           <mat-label>Choose an option</mat-label>
-          <mat-select
-            [(value)]="sourceLang"
-            (selectionChange)="changeSourceLang($event.value)"
-          >
+          <mat-select [(value)]="sourceLang">
             <mat-option *ngFor="let l of sourceLangs" [value]="l">{{
               l
             }}</mat-option>
@@ -55,10 +52,7 @@
 
         <mat-form-field appearance="fill" class="lang-menu">
           <mat-label>Choose an option</mat-label>
-          <mat-select
-            [(value)]="targetLang"
-            (selectionChange)="changeTargetLang($event.value)"
-          >
+          <mat-select [(value)]="targetLang">
             <mat-option *ngFor="let l of targetLangs" [value]="l">{{
               l
             }}</mat-option>

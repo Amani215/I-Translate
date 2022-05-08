@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Lookup } from 'src/app/services/lookup.interface';
 import { TranslationService } from 'src/app/services/translation.service';
-
+ 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -33,15 +33,8 @@ export class CardComponent implements OnInit {
 
   //Default source language is English
   sourceLang: string = 'en';
-  changeSourceLang(value: string) {
-    this.sourceLang = value;
-  }
-
   //Default target language is English
   targetLang: string = 'en';
-  changeTargetLang(value: string) {
-    this.targetLang = value;
-  }
 
   source: string = '';
   translation: string = '';
