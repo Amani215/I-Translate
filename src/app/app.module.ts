@@ -18,9 +18,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HistoryComponent } from './pages/history/history.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     CardComponent,
     SynonymCardComponent,
-    AboutComponent
+    AboutComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

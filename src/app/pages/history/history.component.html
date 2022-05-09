@@ -1,0 +1,22 @@
+<div class="container">
+        <button mat-raised-button color="warn" (click)="clearStorage()" class="btn">
+                Clear History
+        </button>
+
+        <div class="items">
+                <mat-card *ngFor="let i of storageItems" class="item-card">
+                        <mat-card-header
+                                >{{ i.split("-")[0] }} <mat-icon>arrow_right_alt</mat-icon
+                                >{{ i.split("-")[1] }}
+                        </mat-card-header>
+                        <mat-divider></mat-divider>
+                        <mat-card-content id="upper-content"> 
+                                {{ i.split("-")[2] }}
+                        </mat-card-content>
+                        <mat-card-content style="color: grey;">
+                                {{ i.split("-")[3] }}
+                        </mat-card-content>
+                </mat-card>
+        </div> 
+</div>
+

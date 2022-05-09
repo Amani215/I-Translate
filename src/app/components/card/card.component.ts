@@ -80,6 +80,13 @@ export class CardComponent implements OnInit {
     } else {
       this.translation = this.lookup.def[0].tr[0].text;
     }
+
+    //Adding the translation to the local storage
+    if(localStorage.getItem("key")==null){
+      localStorage.setItem("key","1")
+    }
+    localStorage.setItem(localStorage.getItem("key")!, this.sourceLang+"-"+this.targetLang+"-"+this.source+"-"+this.translation);
+    localStorage.setItem("key",(parseInt(localStorage.getItem("key")!)+1).toString());
   }
 
   // This code snippet has been copied from Stack overflow
