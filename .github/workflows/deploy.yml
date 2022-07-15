@@ -36,7 +36,7 @@ jobs:
       - name: deploy
         uses: cpina/github-action-push-to-another-repository@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: 'dist/i-translate'
           destination-github-username: 'Amani215'
