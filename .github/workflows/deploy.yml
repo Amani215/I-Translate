@@ -40,7 +40,7 @@ jobs:
         with:
           source-directory: 'dist/i-translate'
           destination-github-username: 'Amani215'
-          destination-repository-name: 'pandoc-test-output'
+          destination-repository-name: 'Amani215.github.io'
           user-email: amanibrik5@gmail.com
           target-branch: test
           target-directory: apps/i-translate
