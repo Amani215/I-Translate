@@ -1,15 +1,17 @@
-FROM node:lts-alpine3.15
+FROM node:lts-alpine3.15 as build-stage
 
 WORKDIR /usr/src/app/
 
-RUN npm install -g @angular/cli
-
 COPY package*.json .
 
-RUN npm install --include=dev
+RUN npm install
 
 COPY . .
 
-EXPOSE 4200
+RUN npm run build
 
-CMD [ "npm","start" ]
+FROM nginx:1.23.0-alpine
+
+COPY --from=build-stage /usr/src/app/dist/i-translate /var/www/html
+
+COPY default.conf /etc/nginx/conf.d/default.conf
